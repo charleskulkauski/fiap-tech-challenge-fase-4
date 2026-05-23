@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-05-22T16:54:09.424772+00:00",
+  "hf_models_repo": "charleskulkauski/fiap-gynecology-models",
+  "hf_datasets_repo": "charleskulkauski/fiap-gynecology-datasets",
+  "device": "cpu",
+  "structure": {
+    "yolo": "hf_models/yolo/<dataset>/best.pt",
+    "deployment": "hf_models/deployment/{best.pt,best_combined.pt,best_instrument_bleeding.pt}",
+    "action_events": "hf_models/action_events/gynsurg_action_3sec_round2/{action,bleeding,smoke}/best.pt"
+  },
+  "dataset_archives": {
+    "gynsurg.zip": "data/gynsurg",
+    "medical_fiap-tech-challenge.yolov8.zip": "data/medical_fiap-tech-challenge.yolov8",
+    "bleeding_fiap-tech-challenge.yolov8.zip": "data/bleeding_fiap-tech-challenge.yolov8",
+    "combined_medical_bleeding.yolov8.zip": "data/combined_medical_bleeding.yolov8",
+    "gynsurg_instruments_detection.yolov8.zip": "data/gynsurg_instruments_detection.yolov8"
+  },
+  "yolo_jobs": [
+    {
+      "key": "yolo_medical",
+      "data_yaml": "data/medical_fiap-tech-challenge.yolov8/data.yaml",
+      "run_name": "hf_medical_instruments",
+      "export_subdir": "yolo/medical_fiap-tech-challenge",
+      "deployment_alias": "best.pt",
+      "epochs": 40,
+      "imgsz": 320,
+      "batch": 8,
+      "patience": 15,
+      "skip_class_validation": false
+    },
+    {
+      "key": "yolo_bleeding",
+      "data_yaml": "data/bleeding_fiap-tech-challenge.yolov8/data.yaml",
+      "run_name": "hf_bleeding",
+      "export_subdir": "yolo/bleeding_fiap-tech-challenge",
+      "deployment_alias": null,
+      "epochs": 12,
+      "imgsz": 320,
+      "batch": 8,
+      "patience": 6,
+      "skip_class_validation": true
+    },
+    {
+      "key": "yolo_combined",
+      "data_yaml": "data/combined_medical_bleeding.yolov8/data.yaml",
+      "run_name": "hf_combined_instrument_bleeding",
+      "export_subdir": "yolo/combined_medical_bleeding",
+      "deployment_alias": "best_combined.pt",
+      "epochs": 12,
+      "imgsz": 384,
+      "batch": 4,
+      "patience": 6,
+      "skip_class_validation": true
+    },
+    {
+      "key": "yolo_gynsurg",
+      "data_yaml": "data/gynsurg_instruments_detection.yolov8/data.yaml",
+      "run_name": "hf_gynsurg_instruments",
+      "export_subdir": "yolo/gynsurg_instruments_detection",
+      "deployment_alias": "best_instrument_bleeding.pt",
+      "epochs": 5,
+      "imgsz": 512,
+      "batch": 8,
+      "patience": 5,
+      "skip_class_validation": true
+    }
+  ],
+  "action_events": {
+    "epochs": 5,
+    "max_samples_per_class": 80,
+    "note": "max_samples_per_class limita clips por classe em CPU; remova o limite para treino completo."
+  },
+  "completed_steps": [
+    "yolo_medical",
+    "yolo_bleeding",
+    "yolo_combined",
+    "yolo_gynsurg",
+    "action_events"
+  ]
+}

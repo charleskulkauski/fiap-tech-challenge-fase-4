@@ -1,0 +1,23 @@
+{
+  "case_id": "caso-violencia",
+  "categoria_caso": "Acolhimento/Violência",
+  "observacoes_iniciais": "caso-violencia.",
+  "created_at": "2026-05-23T02:23:25",
+  "input_files": {
+    "video_name": "video_instagram_relato_violencia.mp4",
+    "audio_name": "audio_instagram_relato_violencia.mp3",
+    "audio_stored_as": "audio_input.mp3",
+    "has_video": true,
+    "has_audio": true
+  },
+  "lgpd": {
+    "consent_local_processing": true,
+    "consent_azure_speech": true,
+    "consent_azure_openai": true,
+    "purpose": "triagem_multimodal_apoio_clinico_pesquisa",
+    "consented_at": "2026-05-23T02:23:25",
+    "retention_expires_at": "2026-06-22T02:23:25",
+    "retention_days": 30,
+    "policy_version": "lgpd-v1"
+  }
+}

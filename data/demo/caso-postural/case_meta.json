@@ -1,0 +1,23 @@
+{
+  "case_id": "caso-postural",
+  "categoria_caso": "Dor corporal",
+  "observacoes_iniciais": "caso-postural",
+  "created_at": "2026-05-23T02:23:53",
+  "input_files": {
+    "video_name": "dor_postural.mp4",
+    "audio_name": null,
+    "audio_stored_as": null,
+    "has_video": true,
+    "has_audio": false
+  },
+  "lgpd": {
+    "consent_local_processing": true,
+    "consent_azure_speech": true,
+    "consent_azure_openai": true,
+    "purpose": "triagem_multimodal_apoio_clinico_pesquisa",
+    "consented_at": "2026-05-23T02:23:53",
+    "retention_expires_at": "2026-06-22T02:23:53",
+    "retention_days": 30,
+    "policy_version": "lgpd-v1"
+  }
+}
